@@ -1,0 +1,55 @@
+Le Retrieval-Augmented Generation (RAG)
+
+Le RAG est une architecture qui combine la recherche d'information (retrieval) avec la génération de texte par un grand modèle de langage (LLM). Il a été introduit par Lewis et al. de Facebook AI Research en 2020 dans le paper "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks".
+
+Pourquoi le RAG est-il nécessaire ?
+
+Les grands modèles de langage (LLM) comme GPT-4, Claude ou Llama souffrent de plusieurs limitations :
+- Hallucinations : ils peuvent générer des informations fausses avec une haute confiance
+- Cutoff de connaissance : leur savoir est figé à la date d'entraînement
+- Opacité des sources : impossible de savoir d'où vient l'information
+- Coût de mise à jour : réentraîner un LLM sur de nouvelles données coûte des millions de dollars
+
+Le RAG résout ces problèmes en connectant le LLM à une base de connaissance externe et dynamique.
+
+Architecture détaillée du RAG
+
+Phase d'indexation (offline) :
+1. Chargement des documents (PDF, TXT, HTML, etc.)
+2. Découpage en chunks (morceaux de texte de taille fixe avec overlap)
+3. Encodage en vecteurs denses via un modèle d'embedding (ex: sentence-transformers)
+4. Stockage dans une base vectorielle (ChromaDB, Pinecone, Weaviate, FAISS)
+
+Phase de génération (online) :
+1. L'utilisateur pose une question
+2. La question est encodée en vecteur par le même modèle d'embedding
+3. Recherche des k chunks les plus similaires par similarité cosinus
+4. Construction d'un prompt enrichi : [contexte récupéré] + [question]
+5. Le LLM génère une réponse basée uniquement sur le contexte fourni
+
+Avantages clés du RAG
+- Grounding : les réponses sont ancrées dans des documents réels et vérifiables
+- Fraîcheur : mise à jour de la base sans réentraîner le modèle
+- Transparence : les sources peuvent être citées
+- Économique : pas besoin de fine-tuner un LLM coûteux
+
+Métriques d'évaluation d'un système RAG
+- Faithfulness : la réponse est-elle fidèle au contexte récupéré ?
+- Answer Relevancy : la réponse répond-elle bien à la question ?
+- Context Precision : les chunks récupérés sont-ils pertinents ?
+- Context Recall : tous les chunks pertinents ont-ils été récupérés ?
+
+Outils et frameworks populaires pour le RAG
+- LangChain : framework complet pour construire des applications LLM
+- LlamaIndex : spécialisé dans l'indexation et la requête de documents
+- ChromaDB : base vectorielle open-source légère
+- Pinecone, Weaviate, Qdrant : bases vectorielles managées pour la production
+- sentence-transformers : bibliothèque pour les embeddings de texte
+- FAISS (Facebook AI) : librairie de recherche vectorielle haute performance
+
+Applications concrètes du RAG en entreprise
+- Chatbot sur documentation interne (RH, juridique, technique)
+- Système de Q&A sur des bases de connaissance propriétaires
+- Assistance à la recherche académique et scientifique
+- Analyse de contrats et documents légaux
+- Support client intelligent basé sur les FAQs et manuels

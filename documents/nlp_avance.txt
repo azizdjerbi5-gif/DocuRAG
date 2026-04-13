@@ -1,0 +1,44 @@
+NLP Avancé : Embeddings et Modèles de Langage
+
+Le traitement du langage naturel (NLP) a connu une révolution avec l'avènement des modèles de langage pré-entraînés et des embeddings contextuels.
+
+Les Embeddings de texte
+
+Un embedding est une représentation numérique d'un texte sous forme de vecteur dense dans un espace de haute dimension. L'idée fondamentale est que des textes sémantiquement similaires auront des vecteurs proches dans cet espace.
+
+Word2Vec (2013, Google) : premier modèle populaire d'embedding de mots. Capture les relations sémantiques (ex: roi - homme + femme ≈ reine).
+
+GloVe (2014, Stanford) : Global Vectors for Word Representation, combine statistiques globales du corpus avec apprentissage local.
+
+FastText (2016, Facebook) : améliore Word2Vec en prenant en compte les sous-mots (n-grammes de caractères), meilleure gestion des mots rares et des morphologies complexes.
+
+BERT et les embeddings contextuels (2018, Google) : révolution majeure. Les embeddings deviennent contextuels — le vecteur du mot "banque" est différent selon qu'il s'agit d'une institution financière ou d'une rive de rivière.
+
+Sentence-Transformers : BERT optimisé pour produire des embeddings de phrases entières plutôt que de mots isolés. Le modèle all-MiniLM-L6-v2 (22M paramètres) offre un excellent compromis vitesse/qualité pour les applications de recherche sémantique.
+
+La similarité cosinus
+
+Pour mesurer la proximité entre deux embeddings, on utilise la similarité cosinus :
+cos(θ) = (A · B) / (||A|| × ||B||)
+
+La valeur varie entre -1 et 1, avec 1 signifiant une similarité parfaite. Cette métrique est préférée à la distance euclidienne car elle est insensible à la norme des vecteurs.
+
+Les Grands Modèles de Langage (LLM)
+
+GPT (Generative Pre-trained Transformer) est une famille de modèles auto-régressifs développés par OpenAI. GPT-3 (175 milliards de paramètres) a démontré des capacités émergentes remarquables : résolution de problèmes, code, raisonnement en quelques exemples (few-shot learning).
+
+T5 (Text-to-Text Transfer Transformer) de Google reformule toutes les tâches NLP comme une transformation texte-vers-texte. Flan-T5, sa version fine-tunée par instruction, excelle dans les tâches de question-réponse, résumé et traduction.
+
+DistilBERT (Hugging Face, 2019) est une version distillée de BERT, 40% plus légère et 60% plus rapide, conservant 97% des performances. Idéal pour les environnements contraints en ressources.
+
+Fine-tuning et Transfer Learning
+
+Le transfer learning consiste à partir d'un modèle pré-entraîné sur de grandes quantités de données génériques, puis à l'adapter sur une tâche spécifique avec beaucoup moins de données. Le fine-tuning ajuste les poids du modèle sur un dataset cible via un gradient descent avec un faible taux d'apprentissage (généralement entre 1e-5 et 5e-5).
+
+Métriques d'évaluation NLP
+- Accuracy : proportion de prédictions correctes
+- F1-Score : moyenne harmonique entre précision et rappel
+- BLEU : pour évaluer la traduction automatique
+- ROUGE : pour évaluer les résumés automatiques
+- Perplexité : mesure la qualité des modèles de langage génératifs
+- BERTScore : évaluation sémantique basée sur BERT

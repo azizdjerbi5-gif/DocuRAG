@@ -1,0 +1,23 @@
+# DocuRAG — Requirements
+# Testé avec Python 3.10+ et Python 3.14
+
+# Embeddings & NLP
+sentence-transformers>=2.2.0
+transformers>=4.35.0
+torch>=2.0.0
+
+# Modèle QA (téléchargé automatiquement au premier lancement)
+# deepset/roberta-base-squad2
+
+# Base vectorielle
+chromadb>=0.4.0
+
+# PDF support (optionnel)
+pdfplumber>=0.10.0
+
+# Interface
+streamlit>=1.28.0
+
+# Utilitaires
+numpy>=1.24.0
+tqdm>=4.65.0

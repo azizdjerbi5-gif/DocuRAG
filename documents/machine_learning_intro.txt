@@ -1,0 +1,35 @@
+Introduction au Machine Learning
+
+Le machine learning (apprentissage automatique) est une branche de l'intelligence artificielle qui permet aux systèmes informatiques d'apprendre et de s'améliorer automatiquement à partir de l'expérience, sans être explicitement programmés pour chaque tâche.
+
+Les trois types principaux d'apprentissage automatique sont :
+
+1. L'apprentissage supervisé
+Dans ce paradigme, le modèle est entraîné sur un jeu de données étiqueté, c'est-à-dire que chaque exemple d'entrée est associé à une sortie correcte connue. L'algorithme apprend à mapper les entrées vers les sorties en minimisant l'erreur de prédiction. Les algorithmes courants incluent la régression linéaire, la régression logistique, les arbres de décision, les forêts aléatoires (Random Forest), les machines à vecteurs de support (SVM) et les réseaux de neurones.
+
+Applications typiques : classification d'images, détection de spam, prédiction de prix immobiliers, diagnostic médical.
+
+2. L'apprentissage non supervisé
+Le modèle explore des données non étiquetées pour découvrir des structures cachées ou des patterns. Sans guidance explicite, il doit trouver des regroupements naturels dans les données. Les techniques principales sont le clustering (K-Means, DBSCAN, clustering hiérarchique), la réduction de dimensionnalité (PCA, t-SNE, UMAP) et les modèles génératifs (autoencodeurs, GAN).
+
+Applications typiques : segmentation client, détection d'anomalies, compression de données, génération d'images.
+
+3. L'apprentissage par renforcement
+Un agent apprend à prendre des décisions en interagissant avec un environnement pour maximiser une récompense cumulée. L'agent explore différentes actions et apprend quelles stratégies mènent aux meilleures récompenses. Les algorithmes populaires incluent Q-Learning, Deep Q-Network (DQN), et Proximal Policy Optimization (PPO).
+
+Applications typiques : jeux vidéo, robotique, optimisation de systèmes, trading algorithmique.
+
+Concepts fondamentaux du machine learning
+
+Underfitting et Overfitting
+L'underfitting se produit quand le modèle est trop simple pour capturer la complexité des données d'entraînement. L'overfitting se produit quand le modèle mémorise les données d'entraînement au lieu d'apprendre les patterns généralisables. La validation croisée (cross-validation) et la régularisation (L1, L2) sont des techniques pour lutter contre l'overfitting.
+
+Métriques d'évaluation
+Pour les problèmes de classification : accuracy (précision globale), précision, rappel, F1-score, AUC-ROC.
+Pour les problèmes de régression : MAE (Mean Absolute Error), MSE (Mean Squared Error), RMSE, R².
+
+Pipeline MLOps
+Un pipeline MLOps complet comprend la collecte et préparation des données, l'entraînement du modèle, l'évaluation, le déploiement en production et le monitoring continu. Des outils comme MLflow permettent de tracker les expériences, versionner les modèles et gérer le cycle de vie complet du ML.
+
+Le Deep Learning et les Transformers
+Le deep learning utilise des réseaux de neurones profonds avec de nombreuses couches pour apprendre des représentations hiérarchiques des données. Les Transformers, introduits en 2017 par Vaswani et al. dans "Attention is All You Need", ont révolutionné le traitement du langage naturel. L'architecture basée sur le mécanisme d'attention permet de capturer les dépendances à longue distance dans les séquences. Des modèles comme BERT, GPT, et leurs variantes (DistilBERT, RoBERTa, T5) dominent aujourd'hui les benchmarks NLP.
